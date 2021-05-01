@@ -12,6 +12,7 @@ public class Main {
 		instructor1.setId(1);
 		instructor1.setGivenCourse(courses);
 		
+		
 		InstructorManager instructorManager=new InstructorManager();
 		instructorManager.add(instructor1);
 		StudentManager studentManager=new StudentManager();
