@@ -16,7 +16,7 @@ public class InMemoryUserDao implements UserDao{
 	@Override
 	public void add(User user) {
 		userDao.add(user);
-		System.out.println("User eklendi");
+		//System.out.println("User eklendi");
 		
 	}
 
@@ -24,7 +24,7 @@ public class InMemoryUserDao implements UserDao{
 	public void delete(User user) {
 		int userToRemove=userDao.indexOf(user);
 		userDao.remove(userToRemove);
-		System.out.println("user silindi");
+		//System.out.println("user silindi");
 		
 	}
 

@@ -20,7 +20,7 @@ public class AuthManager implements AuthService {
 
 	@Override
 	public boolean register(User user) {
-		if(CheckIfPassword(user)&& CheckIfFullName(user)&& checkIfUserExist(user.getEmail())&& !userService.checkIfEmailCorrect(user.getEmail())) {
+		if(CheckIfPassword(user)&& CheckIfFullName(user)&& checkIfUserExist(user.getEmail())&& userService.checkIfEmailCorrect(user.getEmail())) {
 			verificationService.verificateByCode();
 			System.out.println("Kayýt olma baþarýlý: "+ user.getFirstName());
 			userService.add(user);

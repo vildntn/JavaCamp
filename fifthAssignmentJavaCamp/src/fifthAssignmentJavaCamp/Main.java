@@ -11,11 +11,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		User user1=new User(1, "kullanýcý","birisi","birisi@","45678");
+		User user1=new User(1, "kullanýcý","birisi","kullanýcý@kullanýcý.com.tr","45678");
 		
-		User user2=new User(1, "deneme","denedim","denendi@","12345678");
+		User user2=new User(1, "deneme","denedim","akinb@itu.edu.tr","12345678");
 		
-		User user3=new User(1, "somebody","somewhere","something@","12345678");
+		User user3=new User(1, "somebody","somewhere","something@something.com.tr","12345678");
 
 
 		AuthManager authManager=new AuthManager(new UserManager(new InMemoryUserDao()),new VerificationManager(), new GoogleManagerAdapter());

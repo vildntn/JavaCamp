@@ -4,11 +4,15 @@ import java.util.Scanner;
 import fifthAssignmentJavaCamp.business.abstracts.VerificationService;
 
 public class VerificationManager implements VerificationService {
-	final String code="something";
+	private final String code="something";
+
+	public String getCode() {
+		return code;
+	}
 
 	@Override
 	public void verificateByCode() {
-		System.out.println("Doðrulama kodu: "+code);
+		System.out.println("Doðrulama kodu: "+getCode());
 	      Scanner input=new Scanner(System.in);
 	      System.out.print("Lütfen doðrulama kodunu giriniz: ");
 	      String event=input.nextLine();
