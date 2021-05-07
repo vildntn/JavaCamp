@@ -40,5 +40,15 @@ public class InMemoryUserDao implements UserDao{
 	    
 	}
 
+	@Override
+	public User get(int id) {
+         for (User user : userDao) {
+			if(user.getId()==id) {
+				return user;
+			}
+		}
+		return null;
+	}
+
 
 }

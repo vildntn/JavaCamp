@@ -53,6 +53,11 @@ public class UserManager implements UserService{
 		
 	}
 
+	@Override
+	public User get(int userId) {
+		return userDao.get(userId);
+	}
+
 	
 	
 	 
