@@ -20,11 +20,15 @@ public class AuthManager implements AuthService {
 
 	@Override
 	public boolean register(User user) {
-		if(CheckIfPassword(user)&& CheckIfFullName(user)&& checkIfUserExist(user.getEmail())&& userService.checkIfEmailCorrect(user.getEmail())) {
+		
+		if(validateOfUserInfo(user)&&checkIfPassword(user)
+				&& checkIfFullName(user)
+				&& checkIfUserExist(user.getEmail())
+				&& userService.checkIfEmailCorrect(user.getEmail())) {
 			verificationService.verificateByCode();
 			System.out.println("Kayýt olma baþarýlý: "+ user.getFirstName());
 			userService.add(user);
-			
+
 		}
 		return false;
 	}
@@ -43,7 +47,7 @@ public class AuthManager implements AuthService {
 	}
 
 	
-	private boolean CheckIfFullName(User user) {
+	private boolean checkIfFullName(User user) {
 		if(user.getFirstName().length()>=2 &&user.getLastName().length()>=2) {
 			return true;
 		}else {
@@ -53,7 +57,7 @@ public class AuthManager implements AuthService {
 	}
 	
 	
-	private boolean CheckIfPassword(User user) {
+	private boolean checkIfPassword(User user) {
 		if(user.getPassword().length()>=6) {
 			return true;
 		}
@@ -63,6 +67,18 @@ public class AuthManager implements AuthService {
 			
 		}
 	
+	}
+	private boolean validateOfUserInfo(User user)  {
+		try {
+		if(!user.getEmail().isEmpty()&&!user.getFirstName().isEmpty()&&!user.getLastName().isEmpty()&&!user.getPassword().isEmpty()) {
+			return true;
+		}
+		}
+		catch (NullPointerException e) {
+			System.out.println("Lütfen bütün bilgileri giriniz!");
+			//throw e;
+		}
+		return false;
 	}
 	private boolean checkIfUserExist(String email) {
 		if(userService.getByMail(email)) {
