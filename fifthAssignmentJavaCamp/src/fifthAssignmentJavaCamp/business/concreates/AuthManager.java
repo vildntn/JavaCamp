@@ -26,7 +26,7 @@ public class AuthManager implements AuthService {
 				&& checkIfUserExist(user.getEmail())
 				&& userService.checkIfEmailCorrect(user.getEmail())) {
 			verificationService.verificateByCode();
-			System.out.println("Kayýt olma baþarýlý: "+ user.getFirstName());
+			System.out.println("The user with the name "+user.getFirstName()+" has been registered. " );
 			userService.add(user);
 
 		}
@@ -37,11 +37,11 @@ public class AuthManager implements AuthService {
 	public boolean login(User user) {
 		boolean getEmail=userService.getByMail(user.getEmail());
 		if(getEmail) {
-			System.out.println("Baþarýlý giriþ : " + user.getFirstName());
+			System.out.println("Successful login: " + user.getFirstName());
 			return true;
 		}
 		else {
-			System.out.println("Böyle bir kullanýcý bulunamadý");
+			System.out.println("No such user was found.");
 		return false;
 		}
 	}
@@ -51,7 +51,7 @@ public class AuthManager implements AuthService {
 		if(user.getFirstName().length()>=2 &&user.getLastName().length()>=2) {
 			return true;
 		}else {
-			System.out.println("Ad ve soyad en az 2 karakterden oluþmalýdýr.");
+			System.out.println("Name and surname must be at least 2 characters.");
 			return false;
 		}
 	}
@@ -62,7 +62,7 @@ public class AuthManager implements AuthService {
 			return true;
 		}
 		else {
-			System.out.println("Parola en az 6 karakterden oluþmalýdýr.");
+			System.out.println("The password must be at least 6 characters.");
 			return false;
 			
 		}
@@ -75,14 +75,14 @@ public class AuthManager implements AuthService {
 		}
 		}
 		catch (NullPointerException e) {
-			System.out.println("Lütfen bütün bilgileri giriniz!");
+			System.out.println("Please enter all the information!");
 			//throw e;
 		}
 		return false;
 	}
 	private boolean checkIfUserExist(String email) {
 		if(userService.getByMail(email)) {
-			System.out.println("Bu Email adresi zaten kullanýlýyor");
+			System.out.println("This email address is already in use!");
 			return false;
 		}else {
 			return true;

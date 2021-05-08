@@ -12,12 +12,12 @@ public class VerificationManager implements VerificationService {
 
 	@Override
 	public void verificateByCode() {
-		System.out.println("Doðrulama kodu: "+getCode());
+		System.out.println("Verification Code: "+getCode());
 	      Scanner input=new Scanner(System.in);
-	      System.out.print("Lütfen doðrulama kodunu giriniz: ");
+	      System.out.print("Please enter the verification code: ");
 	      String event=input.nextLine();
 	      if(!code.equals(event)) {
-	    	  System.out.println("Geçersiz kod girdiniz");
+	    	  System.out.println("You entered an invalid code!");
 	      }
 		
 	}

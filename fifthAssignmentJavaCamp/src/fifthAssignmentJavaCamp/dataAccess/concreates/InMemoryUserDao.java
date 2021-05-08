@@ -16,7 +16,7 @@ public class InMemoryUserDao implements UserDao{
 	@Override
 	public void add(User user) {
 		userDao.add(user);
-		//System.out.println("User eklendi");
+		//System.out.println("User Added");
 		
 	}
 
@@ -24,13 +24,22 @@ public class InMemoryUserDao implements UserDao{
 	public void delete(User user) {
 		int userToRemove=userDao.indexOf(user);
 		userDao.remove(userToRemove);
-		//System.out.println("user silindi");
+		//System.out.println("user Deleted");
 		
 	}
 
 	@Override
 	public void update(User user) {
-		// TODO Auto-generated method stub
+		for (User newUser : userDao) {
+			if(newUser.getId()==user.getId()) {
+				newUser.setId(user.getId());
+				newUser.setFirstName(user.getFirstName());
+				newUser.setLastName(user.getLastName());
+				newUser.setEmail(user.getEmail());
+				newUser.setPassword(user.getPassword());
+			}
+			//System.out.println("user Updated");
+		}
 		
 	}
 

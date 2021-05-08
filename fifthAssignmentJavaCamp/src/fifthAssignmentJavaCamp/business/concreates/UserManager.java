@@ -42,7 +42,7 @@ public class UserManager implements UserService{
 		Pattern pattern = Pattern.compile(emailPattern,Pattern.CASE_INSENSITIVE);
 		if(!pattern.matcher(email).find()) {
 			
-			System.out.println("Geçerli bir mail adresi giriniz");
+			System.out.println("Please enter a valid email address!");
 		
 			return false;
 		}
