@@ -64,7 +64,6 @@ public class AuthManager implements AuthService {
 		else {
 			System.out.println("The password must be at least 6 characters.");
 			return false;
-			
 		}
 	
 	}
