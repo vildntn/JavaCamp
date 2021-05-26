@@ -88,6 +88,7 @@ public class AuthManager implements AuthService {
 		}
 	}
 
+	
 	@Override
 	public void registerWithGoogle() {
 		googleService.authToSystem();
